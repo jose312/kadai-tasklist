@@ -35,11 +35,13 @@ public class Tasks{
 	@Column(name="content_2",length=255)
 	private String content_2;
 
-	@Column(name="startdate",nullable=false)
-	private Date sturtdate;
-
-	@Column(name="finishdate",nullable=false)
+	@Column(name="finishdate")
 	private Date finishdate;
+
+	@Column(name="startdate")
+	private Date startdate;
+
+
 
 	@Column(name="created_at",nullable=false)
 	private Timestamp created_at;
@@ -79,13 +81,6 @@ public class Tasks{
 		this.content_2 = content_2;
 	}
 
-	public Date getSturtdate() {
-		return sturtdate;
-	}
-
-	public void setSturtdate(Date sturtdate) {
-		this.sturtdate = sturtdate;
-	}
 
 	public Date getFinishdate() {
 		return finishdate;
@@ -93,6 +88,14 @@ public class Tasks{
 
 	public void setFinishdate(Date finishdate) {
 		this.finishdate = finishdate;
+	}
+
+	public Date getStartdate() {
+		return startdate;
+	}
+
+	public void setStartdate(Date startdate) {
+		this.startdate = startdate;
 	}
 
 	public Timestamp getCreated_at() {
