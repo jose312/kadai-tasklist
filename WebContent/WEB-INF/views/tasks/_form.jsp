@@ -8,7 +8,7 @@
 <br /><br />
 
 <label for="content_2">コメント</label><br />
-<input type="text" name="content_2" value="${message.content_2}" />
+<input type="text" name="content_2" value="${tasks.content_2}" />
 <br /><br />
 
 
