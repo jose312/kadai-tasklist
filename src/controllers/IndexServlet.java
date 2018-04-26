@@ -33,13 +33,13 @@ public class IndexServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		   EntityManager em = DBUtil.createEntityManager();
+		EntityManager em = DBUtil.createEntityManager();
 
-		    List<Tasks> tasks = em.createNamedQuery("getAllTasks", Tasks.class)
-		                               .getResultList();
-		    response.getWriter().append(Integer.valueOf(tasks.size()).toString());
+	    List<Tasks> tasks = em.createNamedQuery("getAllTasks", Tasks.class)
+	                               .getResultList();
+	    response.getWriter().append(Integer.valueOf(tasks.size()).toString());
 
-		    em.close();
+	    em.close();
 		}
 	}
 
