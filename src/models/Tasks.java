@@ -1,6 +1,5 @@
 package models;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -17,7 +16,16 @@ import javax.persistence.Table;
     @NamedQuery(
             name = "getAllTasks",
             query = "SELECT m FROM Tasks AS m ORDER BY m.id DESC"
-            )
+            ),
+    @NamedQuery(
+            name = "getNowTasks",
+            query = "SELECT m FROM Tasks AS m WHERE m.finish_flag = 0"
+            ),
+    @NamedQuery(
+            name = "getFinishTasks",
+            query = "SELECT m FROM Tasks AS m WHERE m.finish_flag = 1"
+            ),
+
 })
 @Table(name="tasks")
 public class Tasks{
@@ -36,10 +44,16 @@ public class Tasks{
 	private String content_2;
 
 	@Column(name="finishdate")
-	private Date finishdate;
+	private String finishdate;
 
 	@Column(name="startdate")
-	private Date startdate;
+	private String startdate;
+
+	@Column(name="finish_flag",nullable=false)
+	private Integer finish_flag;
+
+	@Column(name="priority",length=5,nullable=false)
+	private String priority;
 
 
 
@@ -82,19 +96,19 @@ public class Tasks{
 	}
 
 
-	public Date getFinishdate() {
+	public String getFinishdate() {
 		return finishdate;
 	}
 
-	public void setFinishdate(Date finishdate) {
+	public void setFinishdate(String finishdate) {
 		this.finishdate = finishdate;
 	}
 
-	public Date getStartdate() {
+	public String getStartdate() {
 		return startdate;
 	}
 
-	public void setStartdate(Date startdate) {
+	public void setStartdate(String startdate) {
 		this.startdate = startdate;
 	}
 
@@ -113,6 +127,23 @@ public class Tasks{
 	public void setUpdated_at(Timestamp updated_at) {
 		this.updated_at = updated_at;
 	}
+
+	public Integer getFinish_flag() {
+		return finish_flag;
+	}
+
+	public void setFinish_flag(Integer finish_flag) {
+		this.finish_flag = finish_flag;
+	}
+
+	public String getPriority() {
+		return priority;
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+
 
 
 }

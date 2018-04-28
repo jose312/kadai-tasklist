@@ -36,12 +36,19 @@ public class IndexServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		EntityManager em = DBUtil.createEntityManager();
 
-	    List<Tasks> tasks = em.createNamedQuery("getAllTasks", Tasks.class)
-	                               .getResultList();
+
+	    List<Tasks> nowtasks = em.createNamedQuery("getNowTasks", Tasks.class)
+	    		.getResultList();
+
+	    List<Tasks> finishtasks = em.createNamedQuery("getFinishTasks", Tasks.class)
+	    		.getResultList();
+
 
 	    em.close();
 
-	    request.setAttribute("tasks", tasks);
+	    request.setAttribute("nowtasks", nowtasks);
+	    request.setAttribute("finishtasks", finishtasks);
+
 
 	    RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/tasks/index.jsp");
 	    rd.forward(request, response);

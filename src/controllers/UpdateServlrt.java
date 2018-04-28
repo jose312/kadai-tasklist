@@ -48,6 +48,18 @@ public class UpdateServlrt extends HttpServlet {
 	            String content_2 = request.getParameter("content_2");
 	            m.setContent_2(content_2);
 
+		        String startdate = request.getParameter("startdate");
+		        m.setStartdate(startdate);
+
+		        String finishdate = request.getParameter("finishdate");
+		        m.setFinishdate(finishdate);
+
+		        String priority=request.getParameter("priority");
+		        m.setPriority(priority);
+
+		        Integer finish_flag=0;
+		        m.setFinish_flag(finish_flag);
+
 
 	            Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 	            m.setUpdated_at(currentTime);
