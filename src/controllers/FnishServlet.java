@@ -43,6 +43,7 @@ public class FnishServlet extends HttpServlet {
 
             em.getTransaction().begin();
             em.getTransaction().commit();
+            request.getSession().setAttribute("flush", "完了済みタスクに移動しました。");
             em.close();
 
             response.sendRedirect(request.getContextPath() + "/index");

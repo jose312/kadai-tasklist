@@ -9,7 +9,7 @@
 
         <p>タスク名：<c:out value="${tasks.title}" /></p>
         <p>完了の基準：<c:out value="${tasks.content}" /></p>
-        <p>メモ：<c:out value="${tasks.content_2}" /></p>
+        <p>メモ：<pre><c:out value="${tasks.content_2}" /></pre></p>
         <p>タスク開始日：<c:out value="${tasks.startdate }"/></p>
         <p>タスク完了予定日：<c:out value="${tasks.finishdate }"/></p>
         <p>優先順位：<c:out value="${tasks.priority }"/></p>

@@ -43,6 +43,7 @@ public class NowServlet extends HttpServlet {
 
             em.getTransaction().begin();
             em.getTransaction().commit();
+            request.getSession().setAttribute("flush", "現行タスクに移動しました。");
             em.close();
 
             response.sendRedirect(request.getContextPath() + "/index");

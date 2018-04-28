@@ -19,14 +19,24 @@ import javax.persistence.Table;
             ),
     @NamedQuery(
             name = "getNowTasks",
-            query = "SELECT m FROM Tasks AS m WHERE m.finish_flag = 0"
+            query = "SELECT m FROM Tasks AS m WHERE m.finish_flag = 0 ORDER BY m.id DESC"
             ),
     @NamedQuery(
-            name = "getFinishTasks",
-            query = "SELECT m FROM Tasks AS m WHERE m.finish_flag = 1"
+            name = "getNowTasksCount",
+            query = "SELECT COUNT(m) FROM Tasks AS m WHERE m.finish_flag = 0"
             ),
 
+    @NamedQuery(
+            name = "getFinishTasks",
+            query = "SELECT m FROM Tasks AS m WHERE m.finish_flag = 1 ORDER BY m.id DESC"
+            ),
+    @NamedQuery(
+            name = "getFinishTasksCount",
+            query = "SELECT COUNT(m) FROM Tasks AS m WHERE m.finish_flag = 1"
+            )
 })
+
+
 @Table(name="tasks")
 public class Tasks{
 	@Id
